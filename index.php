@@ -16,11 +16,8 @@ Stampare di nuovo il paragrafo e la sua lunghezza, dopo aver sostituito con tre 
         "se vuoi campar desto loco selvaggio..."';
         
         $censura = $_GET['parola'];
-
-
+        $fraseCensurata = str_replace($censura, '***', $paragrafo);
 ?>
-
-
 
 <!DOCTYPE html>
     <html lang="en">
@@ -32,15 +29,27 @@ Stampare di nuovo il paragrafo e la sua lunghezza, dopo aver sostituito con tre 
     </head>
     <body>
         
+
+    <div>
+        <form action="">
+            <!-- il name dell'imput deve essere uguale alla GET della variabile della richiesta come a riga 18 -->
+            <input name="parola" type="text" placeholder="inserisci la parola da censurare">
+            <input type="submit" value="Invia">
+        </form>
+    </div>
             <h2>Il paragrafo è :</h2>
             <p>
 
-                <?php echo $paragrafo ?>
+                <?php echo $paragrafo; ?>
                 <div>
-                    <span>la lunghezza del paragrafo è lungo:</span>
-                    <?php echo strlen($paragrafo) ?>
+                    <span>la lunghezza del paragrafo è lungo:</span>      
+                    <?php echo strlen($paragrafo); ?>  
                 </div>
             </p>
-            <?php echo str_replace($censura, '***', $paragrafo)?>
-            </html>
+            <?php echo $fraseCensurata ;?>
+            <div>
+                    <span>la lunghezza del paragrafo è lungo:</span>      
+                    <?php echo strlen($fraseCensurata); ?>  
+                </div>
         </body>
+        </html>
